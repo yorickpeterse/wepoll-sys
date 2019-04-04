@@ -33,7 +33,7 @@ mod tests {
             epoll_ctl(
                 epoll,
                 EPOLL_CTL_ADD as i32,
-                socket.as_raw_socket(),
+                socket.as_raw_socket() as usize,
                 &mut event as *mut _,
             );
 
