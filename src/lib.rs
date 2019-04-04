@@ -9,6 +9,7 @@ mod tests {
     use super::*;
     use std::mem;
     use std::net::UdpSocket;
+    use std::os::windows::io::AsRawSocket;
 
     #[test]
     fn test_poll() {
