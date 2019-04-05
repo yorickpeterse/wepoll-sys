@@ -1,6 +1,6 @@
 [package]
 name = "wepoll-sys"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Yorick Peterse <yorickpeterse@gmail.com>"]
 edition = "2018"
 links = "wepoll"
