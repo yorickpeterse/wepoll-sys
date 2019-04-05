@@ -10,7 +10,11 @@ repository = "https://gitlab.com/yorickpeterse/wepoll-sys"
 readme = "README.md"
 license = "MPL-2.0"
 keywords = ["wepoll", "poll", "windows", "epoll"]
+categories = ["external-ffi-bindings", "os::windows-apis"]
 
 [build-dependencies]
 bindgen = "^0.49"
 cc = "^1.0"
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
