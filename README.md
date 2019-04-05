@@ -1,7 +1,7 @@
 # wepoll-sys
 
-wepoll-sys provides Rust bindings to [wepoll](wepoll), generated using
-[bindgen](bindgen). The wepoll library is included in this crate and compiled
+wepoll-sys provides Rust bindings to [wepoll][wepoll], generated using
+[bindgen][bindgen]. The wepoll library is included in this crate and compiled
 automatically, removing the need for manually installing it.
 
 ## Requirements
