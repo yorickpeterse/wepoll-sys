@@ -34,7 +34,7 @@ fn main() {
         .include(&build_dir)
         .out_dir(&build_dir)
         .file(&build_dir.join("wepoll.c"))
-        .compile("libwepoll");
+        .compile("wepoll");
 
     println!("cargo:rustc-link-lib=static=wepoll");
     println!("cargo:rustc-link-search={}", &build_dir.display());
