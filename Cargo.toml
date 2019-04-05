@@ -1,6 +1,6 @@
 [package]
 name = "wepoll-sys"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["Yorick Peterse <yorickpeterse@gmail.com>"]
 edition = "2018"
 links = "wepoll"
@@ -18,7 +18,7 @@ cc = "^1.0"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
-features = []
+no-default-features = true
 
 [features]
 compile-wepoll = []
