@@ -17,8 +17,6 @@ mod tests {
             let socket = UdpSocket::bind("0.0.0.0:0")
                 .expect("Failed to bind the UDP socket");
 
-            socket.set_nonblocking(true);
-
             let epoll = epoll_create(1);
 
             if epoll.is_null() {
@@ -37,7 +35,7 @@ mod tests {
                 &mut event as *mut _,
             );
 
-            let mut events: [epoll_event; 1] = unsafe { mem::uninitialized() };
+            let mut events: [epoll_event; 1] = mem::uninitialized();
             let received = epoll_wait(epoll, events.as_mut_ptr(), 1, -1);
 
             epoll_close(epoll);
