@@ -30,14 +30,16 @@ fn main() {
             .expect(&format!("Failed to copy {} to the build directory", file));
     }
 
-    cc::Build::new()
-        .include(&build_dir)
-        .out_dir(&build_dir)
-        .file(&build_dir.join("wepoll.c"))
-        .compile("wepoll");
+    if cfg!(feature = "compile-wepoll") {
+        cc::Build::new()
+            .include(&build_dir)
+            .out_dir(&build_dir)
+            .file(&build_dir.join("wepoll.c"))
+            .compile("wepoll");
 
-    println!("cargo:rustc-link-lib=static=wepoll");
-    println!("cargo:rustc-link-search={}", &build_dir.display());
+        println!("cargo:rustc-link-lib=static=wepoll");
+        println!("cargo:rustc-link-search={}", &build_dir.display());
+    }
 
     bindgen::Builder::default()
         .header(build_dir.join("wepoll.h").display().to_string())
