@@ -18,8 +18,3 @@ cc = "^1.0"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
-no-default-features = true
-
-[features]
-compile-wepoll = []
-default = ["compile-wepoll"]

@@ -30,7 +30,7 @@ fn main() {
             .expect(&format!("Failed to copy {} to the build directory", file));
     }
 
-    if cfg!(feature = "compile-wepoll") {
+    if cfg!(windows) {
         cc::Build::new()
             .include(&build_dir)
             .out_dir(&build_dir)
