@@ -35,7 +35,8 @@ mod tests {
                 &mut event as *mut _,
             );
 
-            let mut events: [epoll_event; 1] = mem::uninitialized();
+            let mut events: [epoll_event; 1] =
+                mem::MaybeUninit::uninit().assume_init();
             let received = epoll_wait(epoll, events.as_mut_ptr(), 1, -1);
 
             epoll_close(epoll);
