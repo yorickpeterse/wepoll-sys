@@ -2,7 +2,7 @@
  * wepoll - epoll for Windows
  * https://github.com/piscisaureus/wepoll
  *
- * Copyright 2012-2018, Bert Belder <bertbelder@gmail.com>
+ * Copyright 2012-2020, Bert Belder <bertbelder@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,13 +32,9 @@
 #ifndef WEPOLL_H_
 #define WEPOLL_H_
 
-#ifndef WEPOLL_EXPORT
 #define WEPOLL_EXPORT
-#endif
 
 #include <stdint.h>
-
-/* clang-format off */
 
 enum EPOLL_EVENTS {
   EPOLLIN      = (int) (1U <<  0),
@@ -71,8 +67,6 @@ enum EPOLL_EVENTS {
 #define EPOLL_CTL_ADD 1
 #define EPOLL_CTL_MOD 2
 #define EPOLL_CTL_DEL 3
-
-/* clang-format on */
 
 typedef void* HANDLE;
 typedef uintptr_t SOCKET;
