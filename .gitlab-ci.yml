@@ -3,7 +3,8 @@
 variables:
   CARGO_HOME: $CI_PROJECT_DIR/.cargo
 
-test:
+test:cargo:
+  stage: test
   tags:
     - shared-windows
     - windows
@@ -17,3 +18,14 @@ test:
   cache:
     paths:
       - .cargo
+
+lint:rustfmt:
+  image: rust:latest
+  stage: test
+  before_script:
+    - rustup component add rustfmt
+    - rustc --version
+    - cargo --version
+    - rustfmt --version
+  script:
+    - rustfmt --check src/lib.rs build.rs
