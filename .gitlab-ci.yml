@@ -10,7 +10,7 @@ test:cargo:
     - windows
     - windows-1809
   before_script:
-    - choco install rust-ms llvm -y --no-progress
+    - choco install rust-ms -y --no-progress
     - rustc --version
     - cargo --version
   script:
