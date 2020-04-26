@@ -18,7 +18,7 @@ platforms):
 
 ```toml
 [dependencies.'cfg(windows)'.dependencies]
-wepoll-sys = "1.0.3"
+wepoll-sys = "2.0"
 ```
 
 Since this crate just provides a generated wrapper around the wepoll library,
