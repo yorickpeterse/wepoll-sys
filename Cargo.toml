@@ -13,7 +13,6 @@ keywords = ["wepoll", "poll", "windows", "epoll"]
 categories = ["external-ffi-bindings", "os::windows-apis"]
 
 [build-dependencies]
-bindgen = { version = "^0.53", optional = true }
 cc = "^1.0"
 
 [package.metadata.docs.rs]
@@ -21,4 +20,3 @@ default-target = "x86_64-pc-windows-msvc"
 
 [features]
 default = []
-buildtime-bindgen = ["bindgen"]
