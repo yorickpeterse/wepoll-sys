@@ -16,7 +16,7 @@ categories = ["external-ffi-bindings", "os::windows-apis"]
 cc = "^1.0"
 
 [package.metadata.docs.rs]
-default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc"]
 
 [features]
 default = []
