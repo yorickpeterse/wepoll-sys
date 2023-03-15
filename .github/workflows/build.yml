@@ -4,52 +4,56 @@ on: push
 
 jobs:
   test:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up cache
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cargo/bin/
-          ~/.cargo/registry/index/
-          ~/.cargo/registry/cache/
-          ~/.cargo/git/db/
-          target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Set up cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Set up toolchain
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+      - name: Set up toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
-    - name: Run tests
-      uses: actions-rs/cargo@v1
-      with:
-        command: test
+      - name: Run tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
 
   rustfmt:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up cache
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.cargo/bin/
-          ~/.cargo/registry/index/
-          ~/.cargo/registry/cache/
-          ~/.cargo/git/db/
-          target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Set up cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Set up toolchain
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+      - name: Set up toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
-    - name: Check formatting
-      uses: actions-rs/cargo@v1
-      with:
-        command: fmt
-        args: '--all --check'
+      - name: Check formatting
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: '--all --check'
